@@ -12,35 +12,33 @@ data "aws_route53_zone" "this" {
 }
 
 locals {
-  name                    = module.name.name_prefix
-  module_internal_version = module.name.change.latest
-  public_dns              = aws_instance.this.public_dns
-  site_name               = join(".", [local.name, var.domain])
-  tags                    = merge(module.name.tags, { "Name" : local.site_name })
+  name       = module.name.prefix
+  public_dns = aws_instance.this.public_dns
+  site_name  = join(".", [local.name, var.domain])
+  tags       = merge(module.name.tags, { "Name" : local.site_name })
 
   user_data = templatefile("${path.module}/${var.template}-user-data.sh", {
     s3d_domain    = var.domain
     s3d_name      = local.name
     s3d_setup_ref = var.setup_ref
     s3d_user      = var.user
-    s3d_version   = local.module_internal_version
+    s3d_version   = module.name.release
     s3d_zone      = data.aws_route53_zone.this.zone_id
   })
 }
 
 module "name" {
-  source = "git::https://github.com/s3d-club/terraform-external-data-name-tags?ref=v0.1.0"
+  source = "github.com/s3d-club/terraform-external-name?ref=v0.1.1"
 
-  as_pre_prefix = true
-  disable_date  = true
-  name_prefix   = var.template
-  name_segment  = var.setup_ref
-  path          = path.module
-  tags          = var.tags
+  pet_first    = true
+  disable_date = true
+  context      = join("-", [var.template, var.setup_ref])
+  path         = path.module
+  tags         = var.tags
 }
 
 module "sg_egress" {
-  source = "git::https://github.com/s3d-club/terraform-aws-sg_egress_open?ref=v0.1.0"
+  source = "github.com/s3d-club/terraform-aws-sg_egress_open?ref=v0.1.1"
 
   cidr        = var.cidrs
   cidr6       = var.cidr6s
@@ -50,7 +48,7 @@ module "sg_egress" {
 }
 
 module "sg_ingress" {
-  source = "git::https://github.com/s3d-club/terraform-aws-sg_ingress_ssh?ref=v0.1.0"
+  source = "github.com/s3d-club/terraform-aws-sg_ingress_ssh?ref=v0.1.1"
 
   cidr        = var.cidrs
   cidr6       = var.cidr6s

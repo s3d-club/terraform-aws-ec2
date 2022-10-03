@@ -12,12 +12,12 @@ variable "cidr6s" {
 
   description = <<-END
     IP6 CIDRs
-    https://go.s3d.club/ec2/cidr6s
+    https://go.s3d.club/tf/ec2#cidr6s
     END
 }
 
 variable "setup_ref" {
-  default = "v0.1.0" # from dev-setup
+  default = "v0.1.1" # from dev-setup
   type    = string
 
   description = <<-EOT
