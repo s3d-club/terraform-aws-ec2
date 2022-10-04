@@ -28,7 +28,7 @@ locals {
 }
 
 module "name" {
-  source = "github.com/s3d-club/terraform-external-name?ref=v0.1.1"
+  source = "github.com/s3d-club/terraform-external-name?ref=v0.1.2"
 
   pet_first    = true
   disable_date = true
@@ -38,7 +38,7 @@ module "name" {
 }
 
 module "sg_egress" {
-  source = "github.com/s3d-club/terraform-aws-sg_egress_open?ref=v0.1.1"
+  source = "github.com/s3d-club/terraform-aws-sg_egress_open?ref=v0.1.2"
 
   cidr        = var.cidrs
   cidr6       = var.cidr6s
@@ -72,7 +72,13 @@ resource "aws_instance" "this" {
     module.sg_ingress.security_group_id,
   ]
 
+  metadata_options {
+    http_endpoint = "disabled"
+    http_tokens   = "required"
+  }
+
   root_block_device {
+    encrypted   = true
     tags        = merge(local.tags, { "Name" : local.site_name })
     volume_size = var.volume_size
   }

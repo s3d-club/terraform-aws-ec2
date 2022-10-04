@@ -11,3 +11,11 @@ Recently completed and planned work is tracked here.
 - Updated `name` module
 - Updated `sg_egress` module
 - Updated `sg_ingress` module
+
+## [0.1.2](.)
+- Resolved `tfsec` warnings
+- Set `encrypted` for root block device
+- Set `metadata_options` to disable `http_endpoint`
+- Updated `README.md`
+- Updated `name` module
+- Updated `sg_egress` module
