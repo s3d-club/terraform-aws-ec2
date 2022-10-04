@@ -19,3 +19,7 @@ Recently completed and planned work is tracked here.
 - Updated `README.md`
 - Updated `name` module
 - Updated `sg_egress` module
+
+## [0.1.3](.)
+- Updated `hashicorp/aws` provider
+- Updated `sg_ingress` module
