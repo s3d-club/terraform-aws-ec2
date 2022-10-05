@@ -40,7 +40,7 @@ module "name" {
 
   context      = join("-", [var.template, var.setup_ref])
   disable_date = true
-  keepers      = local.user_map
+  keepers      = merge({ key = var.key_name }, local.user_map)
   path         = path.module
   pet_first    = true
   tags         = var.tags
