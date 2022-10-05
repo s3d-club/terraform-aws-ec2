@@ -17,28 +17,37 @@ locals {
   site_name  = join(".", [local.name, var.domain])
   tags       = merge(module.name.tags, { "Name" : local.site_name })
 
-  user_data = templatefile("${path.module}/${var.template}-user-data.sh", {
+  user_map = {
     s3d_domain    = var.domain
-    s3d_name      = local.name
     s3d_setup_ref = var.setup_ref
     s3d_user      = var.user
     s3d_version   = module.name.release
     s3d_zone      = data.aws_route53_zone.this.zone_id
-  })
+  }
+
+  user_data = templatefile(
+    "${path.module}/${var.template}-user-data.sh",
+    merge(
+      local.user_map,
+      { s3d_name = local.name },
+      { v = "1" },
+    )
+  )
 }
 
 module "name" {
-  source = "github.com/s3d-club/terraform-external-name?ref=v0.1.2"
+  source = "github.com/s3d-club/terraform-external-name?ref=v0.1.3"
 
-  pet_first    = true
-  disable_date = true
   context      = join("-", [var.template, var.setup_ref])
+  disable_date = true
+  keepers      = local.user_map
   path         = path.module
+  pet_first    = true
   tags         = var.tags
 }
 
 module "sg_egress" {
-  source = "github.com/s3d-club/terraform-aws-sg_egress_open?ref=v0.1.2"
+  source = "github.com/s3d-club/terraform-aws-sg_egress_open?ref=v0.1.3"
 
   cidr        = var.cidrs
   cidr6       = var.cidr6s
@@ -48,7 +57,7 @@ module "sg_egress" {
 }
 
 module "sg_ingress" {
-  source = "github.com/s3d-club/terraform-aws-sg_ingress_ssh?ref=v0.1.2"
+  source = "github.com/s3d-club/terraform-aws-sg_ingress_ssh?ref=v0.1.3"
 
   cidr        = var.cidrs
   cidr6       = var.cidr6s
@@ -57,6 +66,8 @@ module "sg_ingress" {
   vpc         = var.vpc_id
 }
 
+# tfsec:ignore:aws-ec2-enable-at-rest-encryption
+# tfsec:ignore:aws-ec2-enforce-http-token-imds
 resource "aws_instance" "this" {
   ami                         = coalesce(var.ami, data.aws_ami.this.id)
   associate_public_ip_address = true
@@ -72,14 +83,7 @@ resource "aws_instance" "this" {
     module.sg_ingress.security_group_id,
   ]
 
-  metadata_options {
-    http_endpoint = "disabled"
-    http_tokens   = "required"
-  }
-
   root_block_device {
-    encrypted   = true
-    tags        = merge(local.tags, { "Name" : local.site_name })
     volume_size = var.volume_size
   }
 }
