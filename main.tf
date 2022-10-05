@@ -40,10 +40,14 @@ module "name" {
 
   context      = join("-", [var.template, var.setup_ref])
   disable_date = true
-  keepers      = merge({ key = var.key_name }, local.user_map)
   path         = path.module
   pet_first    = true
   tags         = var.tags
+
+  keepers = merge(local.user_map, {
+    key       = var.key_name
+    subnet_id = var.subnet_id
+  })
 }
 
 module "sg_egress" {
