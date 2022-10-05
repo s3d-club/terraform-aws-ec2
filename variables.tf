@@ -36,8 +36,7 @@ variable "domain" {
 }
 
 variable "subnet_id" {
-  default     = null
-  description = "The subnet_id (or null for the default)"
+  description = "The subnet_id"
   type        = string
 }
 
