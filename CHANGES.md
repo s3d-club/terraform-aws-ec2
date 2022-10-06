@@ -20,4 +20,7 @@ Plan:
 - Upgraded `setup_ref` default for improved `.vimrc` and `psql`
 
 ## [0.1.9](.)
-- Fixed user data scripting to remove extra sudo
+- Removed `mate`
+
+## [0.1.10](.)
+- Removed `firefox`

@@ -17,10 +17,6 @@ set -e
   echo 'INFO: copying ec2-user keys'
   cp -r /home/ec2-user/.ssh .ssh
 
-  echo 'INFO: installing mate'
-  amazon-linux-extras install -y mate-desktop1.x
-  bash -c 'echo PREFERRED=/usr/bin/mate-session > /etc/sysconfig/desktop'
-
   echo 'INFO: Getting ".s3d-setup"'
   wget "https://raw.githubusercontent.com/s3d-club/s3d-dev-setup/${s3d_setup_ref}/s3d-setup-ec2"
   mv s3d-setup-ec2 .s3d-setup-ec2 

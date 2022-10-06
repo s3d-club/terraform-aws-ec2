@@ -17,7 +17,7 @@ variable "cidr6s" {
 }
 
 variable "setup_ref" {
-  default = "v0.1.2" # from dev-setup
+  default = "v0.1.3" # from dev-setup
   type    = string
 
   description = <<-EOT
