@@ -24,3 +24,6 @@ Plan:
 
 ## [0.1.10](.)
 - Removed `firefox`
+
+## [0.1.11](.)
+- Added egress cidr variable

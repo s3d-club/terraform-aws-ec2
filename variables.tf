@@ -1,9 +1,19 @@
+variable "ami" {
+  default     = null
+  description = "The AMI Image"
+  type        = string
+}
+
+variable "ami_suffix" {
+  default = "arm64-gp2"
+}
+
 variable "cidrs" {
   type = list(string)
 
   description = <<-END
-    IP4 CIDRs
-    https://go.s3d.club/ec2/cidrs
+    a list of addresses for ssh ingress.
+    https://go.s3d.club/tf/ec2/cidrs
     END
 }
 
@@ -11,9 +21,42 @@ variable "cidr6s" {
   type = list(string)
 
   description = <<-END
-    IP6 CIDRs
+    a list of addresses for ssh ingress.
     https://go.s3d.club/tf/ec2#cidr6s
     END
+}
+
+variable "domain" {
+  type = string
+
+  description = <<-END
+    the domain for route53 registration.
+    https://go.s3d.club/tf/ec2#domain
+    END
+}
+
+variable "egress_cidrs" {
+  type = list(string)
+
+  description = <<-END
+    a list of addresses for open egress.
+    https://go.s3d.club/tf/ec2#egress_cidrs
+    END
+}
+
+variable "egress_cidr6s" {
+  type = list(string)
+
+  description = <<-END
+    a list of addresses for open egress.
+    https://go.s3d.club/tf/ec2#egress_cidr6s
+    END
+}
+
+variable "instance_type" {
+  default     = "t4g.medium"
+  description = "The AWS instance type"
+  type        = string
 }
 
 variable "setup_ref" {
@@ -23,16 +66,6 @@ variable "setup_ref" {
   description = <<-EOT
 		The reference string used to fetch the setup script"
 		EOT
-}
-
-variable "tags" {
-  description = "Tags for the aws_instance"
-  type        = map(string)
-}
-
-variable "domain" {
-  description = "The domain name"
-  type        = string
 }
 
 variable "subnet_id" {
@@ -52,20 +85,9 @@ variable "suffix" {
   type        = string
 }
 
-variable "user" {
-  default     = "s3d"
-  description = "The user name"
-  type        = string
-}
-
-variable "ami_suffix" {
-  default = "arm64-gp2"
-}
-
-variable "ami" {
-  default     = null
-  description = "The AMI Image"
-  type        = string
+variable "tags" {
+  description = "Tags for the aws_instance"
+  type        = map(string)
 }
 
 variable "template" {
@@ -73,14 +95,14 @@ variable "template" {
   type        = string
 }
 
-variable "instance_type" {
-  default     = "t4g.medium"
-  description = "The AWS instance type"
+variable "key_name" {
+  description = "The EC2 Key Name"
   type        = string
 }
 
-variable "key_name" {
-  description = "The EC2 Key Name"
+variable "user" {
+  default     = "s3d"
+  description = "The user name"
   type        = string
 }
 
