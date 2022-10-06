@@ -15,3 +15,6 @@ Plan:
 
 ## [0.1.7](.)
 - Added `subnet_id` to the name keepers.
+
+## [0.1.8](.)
+- Upgraded `setup_ref` default for improved `.vimrc` and `psql`
