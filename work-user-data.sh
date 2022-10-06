@@ -18,7 +18,7 @@ set -e
   cp -r /home/ec2-user/.ssh .ssh
 
   echo 'INFO: installing mate'
-  sudo amazon-linux-extras install -y mate-desktop1.x
+  amazon-linux-extras install -y mate-desktop1.x
   bash -c 'echo PREFERRED=/usr/bin/mate-session > /etc/sysconfig/desktop'
 
   echo 'INFO: Getting ".s3d-setup"'

@@ -18,3 +18,6 @@ Plan:
 
 ## [0.1.8](.)
 - Upgraded `setup_ref` default for improved `.vimrc` and `psql`
+
+## [0.1.9](.)
+- Fixed user data scripting to remove extra sudo
