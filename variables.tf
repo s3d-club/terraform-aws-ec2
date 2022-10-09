@@ -60,7 +60,7 @@ variable "instance_type" {
 }
 
 variable "setup_ref" {
-  default = "v0.1.3" # from dev-setup
+  default = "v0.1.5" # from dev-setup
   type    = string
 
   description = <<-EOT

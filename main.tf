@@ -21,7 +21,6 @@ locals {
     s3d_domain    = var.domain
     s3d_setup_ref = var.setup_ref
     s3d_user      = var.user
-    s3d_version   = module.name.release
     s3d_zone      = data.aws_route53_zone.this.zone_id
   }
 
@@ -36,7 +35,7 @@ locals {
 }
 
 module "name" {
-  source = "github.com/s3d-club/terraform-external-name?ref=v0.1.3"
+  source = "github.com/s3d-club/terraform-external-name?ref=v0.1.5"
 
   context      = join("-", [var.template, var.setup_ref])
   disable_date = true
@@ -51,7 +50,7 @@ module "name" {
 }
 
 module "sg_egress" {
-  source = "github.com/s3d-club/terraform-aws-sg_egress_open?ref=v0.1.3"
+  source = "github.com/s3d-club/terraform-aws-sg_egress_open?ref=v0.1.4"
 
   cidr        = var.egress_cidrs
   cidr6       = var.egress_cidr6s
@@ -61,7 +60,7 @@ module "sg_egress" {
 }
 
 module "sg_ingress" {
-  source = "github.com/s3d-club/terraform-aws-sg_ingress_ssh?ref=v0.1.3"
+  source = "github.com/s3d-club/terraform-aws-sg_ingress_ssh?ref=v0.1.4"
 
   cidr        = var.cidrs
   cidr6       = var.cidr6s
