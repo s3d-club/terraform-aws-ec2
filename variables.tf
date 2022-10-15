@@ -1,62 +1,77 @@
-variable "ami" {
-  default     = null
-  description = "The AMI Image"
-  type        = string
+variable "ami_id" {
+  default = null
+  type    = string
+
+  description = <<-EOT
+    an AMI ID.
+    https://go.s3d.club/tf/ec2#ami_id
+    EOT
 }
 
 variable "ami_suffix" {
   default = "arm64-gp2"
+
+  description = <<-EOT
+    an AMI suffix that is used to find an ami when ami_id is null.
+    https://go.s3d.club/tf/ec2#ami_suffix
+    EOT
 }
 
-variable "cidrs" {
+variable "ssh_cidrs" {
   type = list(string)
 
-  description = <<-END
+  description = <<-EOT
     a list of addresses for ssh ingress.
-    https://go.s3d.club/tf/ec2/cidrs
-    END
+    https://go.s3d.club/tf/ec2#ssh_cidrs
+    EOT
 }
 
-variable "cidr6s" {
-  type = list(string)
+variable "ssh_cidr6s" {
+  default = []
+  type    = list(string)
 
-  description = <<-END
+  description = <<-EOT
     a list of addresses for ssh ingress.
-    https://go.s3d.club/tf/ec2#cidr6s
-    END
+    https://go.s3d.club/tf/ec2#ssh_cidr6s
+    EOT
 }
 
 variable "domain" {
   type = string
 
-  description = <<-END
+  description = <<-EOT
     the domain for route53 registration.
     https://go.s3d.club/tf/ec2#domain
-    END
+    EOT
 }
 
 variable "egress_cidrs" {
   type = list(string)
 
-  description = <<-END
+  description = <<-EOT
     a list of addresses for open egress.
     https://go.s3d.club/tf/ec2#egress_cidrs
-    END
+    EOT
 }
 
 variable "egress_cidr6s" {
-  type = list(string)
+  default = []
+  type    = list(string)
 
-  description = <<-END
+  description = <<-EOT
     a list of addresses for open egress.
     https://go.s3d.club/tf/ec2#egress_cidr6s
-    END
+    EOT
 }
 
 variable "instance_type" {
-  default     = "t4g.medium"
-  description = "The AWS instance type"
-  type        = string
+  default = "t4g.medium"
+  type    = string
+
+  description = <<-EOT
+    an AWS EC2 instance type.
+    https://go.s3d.club/tf/ec2#instance_type
+    EOT
 }
 
 variable "setup_ref" {
@@ -64,55 +79,73 @@ variable "setup_ref" {
   type    = string
 
   description = <<-EOT
-		The reference string used to fetch the setup script"
-		EOT
+    a version used when fetching the setup script.
+    https://go.s3d.club/tf/ec2#setup_ref
+    EOT
 }
 
 variable "subnet_id" {
-  description = "The subnet_id"
-  type        = string
-}
+  type = string
 
-variable "project" {
-  default     = "s3d"
-  description = "The project name"
-  type        = string
-}
-
-variable "suffix" {
-  default     = "1"
-  description = "The name suffix"
-  type        = string
+  description = <<-EOT
+    a subnet_id.
+    https://go.s3d.club/tf/ec2#subnet_id
+    EOT
 }
 
 variable "tags" {
-  description = "Tags for the aws_instance"
-  type        = map(string)
+  type = map(string)
+
+  description = <<-EOT
+    a map of tags for resources.
+    https://go.s3d.club/tf/ec2#tags
+    EOT
 }
 
 variable "template" {
-  description = "The template to use"
-  type        = string
+  default = "work"
+  type    = string
+
+  description = <<-EOT
+    a template to use for setting up the image.
+    https://go.s3d.club/tf/ec2#template
+    EOT
 }
 
 variable "key_name" {
-  description = "The EC2 Key Name"
-  type        = string
+  type = string
+
+  description = <<-EOT
+    an EC2 keyname.
+    https://go.s3d.club/tf/ec2#key_name
+    EOT
 }
 
-variable "user" {
-  default     = "s3d"
-  description = "The user name"
-  type        = string
+variable "username" {
+  default = "s3d"
+  type    = string
+
+  description = <<-EOT
+    an username.
+    https://go.s3d.club/tf/ec2#username
+    EOT
 }
 
 variable "volume_size" {
   default = 50
   type    = number
 
-  description = "Size of the volume in gibibytes"
+  description = <<-EOT
+    an size in GiB for the volume.
+    https://go.s3d.club/tf/ec2#volume_size
+    EOT
 }
 
 variable "vpc_id" {
   type = string
+
+  description = <<-EOT
+    a vpc id.
+    https://go.s3d.club/tf/ec2#vpc_id
+    EOT
 }

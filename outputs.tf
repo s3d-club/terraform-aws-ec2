@@ -1,10 +1,10 @@
-output "user" {
+output "username" {
   description = <<-END
     The user name  where tools are configured (the ec2-user also for
     low-level access)
     END
 
-  value = var.user
+  value = var.username
 }
 
 output "dns_name" {

@@ -20,7 +20,7 @@ locals {
   user_map = {
     s3d_domain    = var.domain
     s3d_setup_ref = var.setup_ref
-    s3d_user      = var.user
+    s3d_user      = var.username
     s3d_zone      = data.aws_route53_zone.this.zone_id
   }
 
@@ -62,8 +62,8 @@ module "sg_egress" {
 module "sg_ingress" {
   source = "github.com/s3d-club/terraform-aws-sg_ingress_ssh?ref=v0.1.6"
 
-  cidr        = var.cidrs
-  cidr6       = var.cidr6s
+  cidr        = var.ssh_cidrs
+  cidr6       = var.ssh_cidr6s
   name_prefix = local.name
   tags        = local.tags
   vpc         = var.vpc_id
@@ -72,7 +72,7 @@ module "sg_ingress" {
 # tfsec:ignore:aws-ec2-enable-at-rest-encryption
 # tfsec:ignore:aws-ec2-enforce-http-token-imds
 resource "aws_instance" "this" {
-  ami                         = coalesce(var.ami, data.aws_ami.this.id)
+  ami                         = coalesce(var.ami_id, data.aws_ami.this.id)
   associate_public_ip_address = true
   instance_type               = var.instance_type
   key_name                    = var.key_name

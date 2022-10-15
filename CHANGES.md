@@ -11,3 +11,9 @@ Plan:
 - Fixed typo in README
 - Update `time` provider
 - Update modules
+
+## [0.1.15](.)
+- Changed `cidr6s` to optional
+- Changed `egress_cidr6s` to optional
+- Improved variable descriptions
+- Removed unused `variable "project"`
