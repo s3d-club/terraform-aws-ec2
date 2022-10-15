@@ -84,7 +84,7 @@ variable "name_prefix" {
 }
 
 variable "setup_ref" {
-  default = "v0.1.8" # from dev-setup
+  default = "v0.1.10" # from dev-setup
   type    = string
 
   description = <<-EOT

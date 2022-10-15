@@ -38,8 +38,9 @@ set -e
     echo -e "S3D_NAME=\"${s3d_name}\""
     echo -e "S3D_SETUP_REF=\"${s3d_setup_ref}\""
     echo -e "S3D_ZONE=\"${s3d_zone}\""
-    echo -e "PATH=\"\$HOME/.tfenv/bin:\$PATH\""
     echo -e "PATH=\"\$HOME/.s3d/scripts:\$PATH\""
+    echo -e "PATH=\"\$HOME/.tfenv/bin:\$PATH\""
+    echo -e "PATH=\"\$HOME/go/bin:\$PATH\""
     echo -e ""
     echo -e "[ -d \"\$HOME/.s3d/logs\" ] || . \"\$HOME/.s3d-setup\""
   } >> .bash_profile
