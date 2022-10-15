@@ -17,3 +17,6 @@ Plan:
 - Changed `egress_cidr6s` to optional
 - Improved variable descriptions
 - Removed unused `variable "project"`
+
+## [0.1.16](.)
+- Added `name_prefix` variable

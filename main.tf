@@ -37,10 +37,9 @@ locals {
 module "name" {
   source = "github.com/s3d-club/terraform-external-name?ref=v0.1.7"
 
-  context      = join("-", [var.template, var.setup_ref])
+  context      = join("-", [var.name_prefix, var.template, var.setup_ref])
   disable_date = true
   path         = path.module
-  pet_first    = true
   tags         = var.tags
 
   keepers = merge(local.user_map, {

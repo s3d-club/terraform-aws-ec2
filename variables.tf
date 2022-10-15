@@ -74,6 +74,15 @@ variable "instance_type" {
     EOT
 }
 
+variable "name_prefix" {
+  type = string
+
+  description = <<-EOT
+    an prefix for naming resources.
+    https://go.s3d.club/tf/ec2#name_prefix
+    EOT
+}
+
 variable "setup_ref" {
   default = "v0.1.8" # from dev-setup
   type    = string
