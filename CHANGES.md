@@ -20,3 +20,6 @@ Plan:
 ## [0.1.17](.)
 - Updated setup ref
 - Added `$HOME/go/bin` to PATH
+
+## [0.1.18](.)
+- Fixed tfsec curl command
