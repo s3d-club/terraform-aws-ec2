@@ -1,32 +1,35 @@
 output "username" {
-  description = <<-END
-    The user name  where tools are configured (the ec2-user also for
-    low-level access)
-    END
-
   value = var.username
+
+  description = <<-EOT
+    The user name where tools are configured.  The ec2-user is also for
+    low-level access but should not be used for general work.
+    EOT
 }
 
 output "dns_name" {
-  description = <<-END
-    The dns name we configured. This is a CNAME that refer to the
-    `ec2_dns` value.
-    END
-
   value = local.site_name
+
+  description = <<-EOT
+    This is a friEOTly `CNAME` that refer to the `ec2_dns` value.
+    EOT
 }
 
 output "ec2_dns" {
-  description = "The actual public DNS for the instance"
-  value       = local.public_dns
+  value = local.public_dns
+
+  description = <<-EOT
+    The actual public DNS for the instance.
+    EOT
 }
 
 output "security_groups" {
-  value = [module.sg_ingress, module.sg_egress]
+  value = {
+    ingress = module.sg_ingress
+    egress  = module.sg_egress
+  }
 
-  description = <<-END
-    The EC2 Admin site name
-
-    The EC2 Aministration instance if one is available.
-    END
+  description = <<-EOT
+    The security groups.
+    EOT
 }

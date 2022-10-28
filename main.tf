@@ -35,7 +35,7 @@ locals {
 }
 
 module "name" {
-  source = "github.com/s3d-club/terraform-external-name?ref=v0.1.10"
+  source = "github.com/s3d-club/terraform-external-name?ref=v0.1.14"
 
   context      = join("-", [var.name_prefix, var.template, var.setup_ref])
   disable_date = true
@@ -49,23 +49,23 @@ module "name" {
 }
 
 module "sg_egress" {
-  source = "github.com/s3d-club/terraform-aws-sg_egress_open?ref=v0.1.11"
+  source = "github.com/s3d-club/terraform-aws-sg_egress_open?ref=v0.1.14"
 
-  cidr        = var.egress_cidrs
-  cidr6       = var.egress_cidr6s
+  cidrs       = var.egress_cidrs
+  cidr6s      = var.egress_cidr6s
   name_prefix = local.name
   tags        = local.tags
-  vpc         = var.vpc_id
+  vpc_id      = var.vpc_id
 }
 
 module "sg_ingress" {
-  source = "github.com/s3d-club/terraform-aws-sg_ingress_ssh?ref=v0.1.10"
+  source = "github.com/s3d-club/terraform-aws-sg_ingress_ssh?ref=v0.1.12"
 
-  cidr        = var.ssh_cidrs
-  cidr6       = var.ssh_cidr6s
+  cidrs       = var.ssh_cidrs
+  cidr6s      = var.ssh_cidr6s
   name_prefix = local.name
   tags        = local.tags
-  vpc         = var.vpc_id
+  vpc_id      = var.vpc_id
 }
 
 # tfsec:ignore:aws-ec2-enable-at-rest-encryption

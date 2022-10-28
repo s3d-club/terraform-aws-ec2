@@ -1,4 +1,5 @@
 # AWS EC2 Module
+A Terraform module that defines an EC2 instance.
 
 ## Other Documents
 Please read our [LICENSE][lice], [CONTRIBUTING][cont], [CODE-OF-CONDUCT][code],
@@ -6,10 +7,11 @@ and [CHANGES][chge] documents before working in this project and anytime they
 are updated.
 
 ## Overview
-This module deploys EC2 instances.
+This module defines an EC2 instance.
 
-Currently, we support the `work` template. We we will define other templates as
-they are needed.
+Currently, we support the `work` template. The `work` template provides a basic
+system that is useful for development and/or adminstrative tasks. We we will
+define other templates when needed.
 
 ## Templates
 | Name   | Description                                  |

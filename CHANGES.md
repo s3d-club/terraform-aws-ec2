@@ -6,3 +6,12 @@ Recently completed and planned work is tracked here.
 
 ## [0.1.24](.)
 - Removed dependency on `s3d-flow-json`
+
+## [0.1.25](.)
+- Added type for `ami_suffix` module
+- Improved descriptions of variables and outputs
+- Updated `aws` provider
+- Updated `name` module
+- Updated `setup_ref` variable default
+- Updated `sg_egress` module
+- Updated `sg_ingress` module
