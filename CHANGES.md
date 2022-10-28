@@ -8,3 +8,8 @@ Recently completed and planned work is tracked here.
 - Added `terraform.tf`
 - Updated `.terraform.lock.hcl`
 - Updated modules
+
+## [0.1.23](.)
+- Updated `aws` provider
+- Updated `sg_egress` module
+- Updated `sg_ingress` module
