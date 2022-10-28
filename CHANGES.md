@@ -7,7 +7,7 @@ Recently completed and planned work is tracked here.
 ## [0.1.24](.)
 - Removed dependency on `s3d-flow-json`
 
-## [0.1.25](.)
+## [0.1.25](.) to [0.1.26](.)
 - Added type for `ami_suffix` module
 - Improved descriptions of variables and outputs
 - Updated `aws` provider

@@ -11,7 +11,7 @@ output "dns_name" {
   value = local.site_name
 
   description = <<-EOT
-    This is a friEOTly `CNAME` that refer to the `ec2_dns` value.
+    This is a friendly `CNAME` that refer to the `ec2_dns` value.
     EOT
 }
 
