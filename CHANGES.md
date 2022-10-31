@@ -15,3 +15,6 @@ Recently completed and planned work is tracked here.
 - Updated `setup_ref` variable default
 - Updated `sg_egress` module
 - Updated `sg_ingress` module
+
+## [0.1.27](.)
+- Changed to use `-x` as suffix for pre-release versions
