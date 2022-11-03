@@ -16,23 +16,6 @@ variable "ami_suffix" {
     EOT
 }
 
-variable "ssh_cidrs" {
-  type = list(string)
-
-  description = <<-EOT
-    A list of addresses for ssh ingress.
-    EOT
-}
-
-variable "ssh_cidr6s" {
-  default = []
-  type    = list(string)
-
-  description = <<-EOT
-    A list of addresses for ssh ingress.
-    EOT
-}
-
 variable "domain" {
   type = string
 
@@ -41,17 +24,17 @@ variable "domain" {
     EOT
 }
 
-variable "egress_cidrs" {
-  type = list(string)
+variable "egress_cidr6s" {
+  default = []
+  type    = list(string)
 
   description = <<-EOT
     A list of addresses for open egress.
     EOT
 }
 
-variable "egress_cidr6s" {
-  default = []
-  type    = list(string)
+variable "egress_cidrs" {
+  type = list(string)
 
   description = <<-EOT
     A list of addresses for open egress.
@@ -67,6 +50,14 @@ variable "instance_type" {
     EOT
 }
 
+variable "key_name" {
+  type = string
+
+  description = <<-EOT
+    An EC2 keyname.
+    EOT
+}
+
 variable "name_prefix" {
   type = string
 
@@ -76,11 +67,28 @@ variable "name_prefix" {
 }
 
 variable "setup_ref" {
-  default = "v0.1.15" # from dev-setup
+  default = "v0.1.16" # from dev-setup
   type    = string
 
   description = <<-EOT
     A version used when fetching the setup script.
+    EOT
+}
+
+variable "ssh_cidr6s" {
+  default = []
+  type    = list(string)
+
+  description = <<-EOT
+    A list of addresses for ssh ingress.
+    EOT
+}
+
+variable "ssh_cidrs" {
+  type = list(string)
+
+  description = <<-EOT
+    A list of addresses for ssh ingress.
     EOT
 }
 
@@ -106,14 +114,6 @@ variable "template" {
 
   description = <<-EOT
     A template to use for setting up the image.
-    EOT
-}
-
-variable "key_name" {
-  type = string
-
-  description = <<-EOT
-    An EC2 keyname.
     EOT
 }
 

@@ -1,12 +1,3 @@
-output "username" {
-  value = var.username
-
-  description = <<-EOT
-    The user name where tools are configured.  The ec2-user is also for
-    low-level access but should not be used for general work.
-    EOT
-}
-
 output "dns_name" {
   value = local.site_name
 
@@ -31,5 +22,14 @@ output "security_groups" {
 
   description = <<-EOT
     The security groups.
+    EOT
+}
+
+output "username" {
+  value = var.username
+
+  description = <<-EOT
+    The user name where tools are configured.  The ec2-user is also for
+    low-level access but should not be used for general work.
     EOT
 }
