@@ -13,7 +13,7 @@ This file describes the project history as it relates to tagged versions.
 - Updated `sg_egress` module
 - Updated `sg_ingress` module
 
-## [0.1.28](.) to  [0.1.29](.)
+## [0.1.28](.) to [0.1.29](.)
 - Fixed sorting of resources in Terraform files
 - Updated `sg_egress` module
 - Updated `sg_ingress` module
@@ -27,3 +27,6 @@ This file describes the project history as it relates to tagged versions.
 - Updated `aws` provider
 - Updated `external` provider
 - Updated `time` provider
+
+## [0.1.31](.)
+- Updated `setup_ref`
