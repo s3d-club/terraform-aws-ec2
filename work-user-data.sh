@@ -49,4 +49,4 @@ set -e
   chown -R "${s3d_user}:${s3d_user}" "/home/${s3d_user}"
 
   echo 'INFO: S3D USER DATA COMPLETE'
-} >> /root/user-data.log 2>&1
+} >> "$HOME/user-data.log" 2>&1

@@ -17,7 +17,13 @@ This file describes the project history as it relates to tagged versions.
 - Fixed sorting of resources in Terraform files
 - Updated `sg_egress` module
 - Updated `sg_ingress` module
-- Upgraded `name` module
-- Upgraded `setup_ref` for new setup script version
-- Upgraded `terraform` version
-- Upgraded `time` provider
+- Updated `name` module
+- Updated `setup_ref` for new setup script version
+- Updated `terraform` version
+- Updated `time` provider
+
+## [0.1.30](.)
+- Changed to `$HOME/user-data.log`
+- Updated `aws` provider
+- Updated `external` provider
+- Updated `time` provider
