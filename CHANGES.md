@@ -28,5 +28,5 @@ This file describes the project history as it relates to tagged versions.
 - Updated `external` provider
 - Updated `time` provider
 
-## [0.1.31](.)
+## [0.1.31](.) to [0.1.32](.)
 - Updated `setup_ref`
