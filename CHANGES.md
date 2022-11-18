@@ -17,10 +17,8 @@ This file describes the project history as it relates to tagged versions.
 
 ## [0.1.30](.) to [0.1.33](.)
 - Changed to `$HOME/user-data.log`
-- Updated `aws` provider
-- Updated `external` provider
-- Updated `time` provider
 - Updated `setup_ref`
+- Updated providers
 
-## [0.1.34](.)
+## [0.1.34](.) to [0.1.35](.)
 - Updated `aws` provider
