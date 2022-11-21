@@ -15,10 +15,10 @@ This file describes the project history as it relates to tagged versions.
 - Updated `terraform` version
 - Updated `time` provider
 
-## [0.1.30](.) to [0.1.33](.)
+## [0.1.30](.) to [0.1.35](.)
 - Changed to `$HOME/user-data.log`
 - Updated `setup_ref`
 - Updated providers
 
-## [0.1.34](.) to [0.1.35](.)
-- Updated `aws` provider
+## [0.1.36](.)
+- Updated dev-setup for consolidated `bashrc` scripting
