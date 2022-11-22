@@ -8,17 +8,14 @@ This file describes the project history as it relates to tagged versions.
 - Added type for `ami_suffix` module
 - Fixed sorting of resources in Terraform files
 - Improved descriptions of variables and outputs
-- Updated `name` module
 - Updated `setup_ref` for new setup script version
-- Updated `sg_egress` module
-- Updated `sg_ingress` module
-- Updated `terraform` version
-- Updated `time` provider
+- Updated providers and modules
 
 ## [0.1.30](.) to [0.1.35](.)
 - Changed to `$HOME/user-data.log`
 - Updated `setup_ref`
+- Updated dev-setup for consolidated `bashrc` scripting
 - Updated providers
 
-## [0.1.36](.)
-- Updated dev-setup for consolidated `bashrc` scripting
+## [0.1.37](.)
+- Updated docs

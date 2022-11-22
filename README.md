@@ -1,10 +1,9 @@
 # AWS EC2 Module
 A Terraform module that defines an EC2 instance.
 
-## Other Documents
-Please read our [LICENSE][lice], [CONTRIBUTING][cont], [CODE-OF-CONDUCT][code],
-and [CHANGES][chge] documents before working in this project and anytime they
-are updated.
+## Associated Documents
+Please read our [LICENSE][lice], [CONTRIBUTING][cont], and [CHANGES][chge]
+documents before working in this project and anytime they are updated.
 
 ## Overview
 This module defines an EC2 instance.
@@ -19,6 +18,5 @@ define other templates when needed.
 | `work` | A developer focued build with Amazon Linux 2 |
 
 [chge]: ./CHANGES.md
-[code]: ./CODE-OF-CONDUCT.md
 [cont]: ./CONTRIBUTING.md
 [lice]: ./LICENSE.md
