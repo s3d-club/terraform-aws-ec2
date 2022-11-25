@@ -11,11 +11,12 @@ This file describes the project history as it relates to tagged versions.
 - Updated `setup_ref` for new setup script version
 - Updated providers and modules
 
-## [0.1.30](.) to [0.1.35](.)
+## [0.1.30](.) to [0.1.37](.)
 - Changed to `$HOME/user-data.log`
 - Updated `setup_ref`
 - Updated dev-setup for consolidated `bashrc` scripting
+- Updated docs
 - Updated providers
 
-## [0.1.37](.)
-- Updated docs
+## [0.1.38](.)
+- Updated `aws` provider
