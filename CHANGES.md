@@ -18,6 +18,6 @@ This file describes the project history as it relates to tagged versions.
 - Updated docs
 - Updated providers
 
-## [0.1.38](.) to [0.1.42](.)
+## [0.1.38](.) to [0.1.43](.)
 - Updated `aws` provider
 - Updated `required_version`
