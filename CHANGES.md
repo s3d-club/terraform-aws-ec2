@@ -1,8 +1,5 @@
 # Changes
-- This is a [CHANGES.md](https://go.s3d.club/changes/) file
+This file describes the project history as it relates to tagged versions.
 
-## [0.0.1-1](https://go.s3d.club/terraform-aws-ec2/work/0.0.1)
-- **TODO** Added initial implementation
-
-## [Next](https://go.s3d.club/terraform-aws-ec2/next)
-- **TODO** Plan
+## [0.0.0](.) to [1.0.0](.)
+- Created the first release
